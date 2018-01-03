@@ -39,9 +39,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
@@ -52,43 +51,47 @@
 			</dict>
 		</dict>
 	</dict>
-  
-  
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb369903633480705</string>
-      </array>
-    </dict>
-  </array>
-  <key>FacebookAppID</key>
-  <string>369903633480705</string>
-  <key>FacebookDisplayName</key>
-  <string>languagemobile</string>
-  
-  
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>fbapi</string>
-    <string>fb-messenger-share-api</string>
-    <string>fbauth2</string>
-    <string>fbshareextension</string>
-  </array>
-  <key>NSCameraUsageDescription</key>
-  <string>Your message to user when the camera is accessed for the first time</string>
-  
-  <!-- Include this only if you are planning to use the camera roll -->
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>Your message to user when the photo library is accessed for the first time</string>
-  
-  <!-- Include this only if you are planning to use the microphone for video recording -->
-  <key>NSMicrophoneUsageDescription</key>
-  <string>Your message to user when the microphone is accessed for the first time</string>
-  
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Your message to user when the camera is accessed for the first time</string>
-  
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb369903633480705</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>369903633480705</string>
+	<key>FacebookDisplayName</key>
+	<string>languagemobile</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Your message to user when the camera is accessed for the first time</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your message to user when the microphone is accessed for the first time</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your message to user when the camera is accessed for the first time</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
 </dict>
 </plist>

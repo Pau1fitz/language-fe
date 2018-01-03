@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableHighlight } from 'react-native';
 import Loading from '../Loading';
 import styled from 'styled-components/native';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 var ImagePicker = require('react-native-image-picker');
 
@@ -182,20 +183,19 @@ class HomeScreen extends Component {
 
       <MainContainer>
 				<NavView>
-
 					<TouchableHighlight
 						onPress={() => this.imageTest()}>
-						<MenuText>CHOOSE IMAGE</MenuText>
+						<Icon name='user' size={25} color="#67A4FC" />
 					</TouchableHighlight>
 
 					<TouchableHighlight
 						onPress={() => this.props.navigation.navigate('UserList', { userId: this.state.userId, username: this.state.username, photo: this.state.photo} )}>
-						<MenuText>USERS</MenuText>
+						<Icon name='bolt' size={25} color="#67A4FC" />
 					</TouchableHighlight>
 
 					<TouchableHighlight
-						onPress={() => this.getUserCameraRoll()}>
-						<MenuText>PROFILE</MenuText>
+						onPress={() => this.props.navigation.navigate('UserList', { userId: this.state.userId, username: this.state.username, photo: this.state.photo} )}>
+						<Icon name='comment' size={25} color="#67A4FC" />
 					</TouchableHighlight>
 
 				</NavView>
@@ -223,9 +223,9 @@ const UserContainer = styled.View`
 `
 
 const UserImage = styled.Image`
-	height: 50px;
-	width: 50px;
-	border-radius: 25px;
+	height: 70px;
+	width: 70px;
+	border-radius: 35px;
 `;
 
 const UsernameText = styled.Text`

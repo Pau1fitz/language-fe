@@ -12,7 +12,7 @@ const RootNavigator = StackNavigator({
 		navigationOptions: {
 			headerTitle: 'Home',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#000'},
+			headerStyle: { backgroundColor: '#67A4FC'},
 		},
 	},
   UserList: {
@@ -20,7 +20,7 @@ const RootNavigator = StackNavigator({
     navigationOptions: {
       headerTitle: 'User List',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#000'},
+			headerStyle: { backgroundColor: '#67A4FC'},
     },
   },
 	Chat: {
@@ -28,7 +28,7 @@ const RootNavigator = StackNavigator({
 		navigationOptions: {
 			headerTitle: 'Chat',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#000'},
+			headerStyle: { backgroundColor: '#67A4FC'},
 		},
 	},
 
