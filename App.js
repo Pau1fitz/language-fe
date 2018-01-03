@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from './components/HomeScreen';
 import UserList from './components/UserList';
 import Chat from './components/Chat';
+import Profile from './components/Profile';
 
 const RootNavigator = StackNavigator({
 	Home: {
@@ -27,6 +28,14 @@ const RootNavigator = StackNavigator({
 		screen: Chat,
 		navigationOptions: {
 			headerTitle: 'Chat',
+			headerTintColor: '#fff',
+			headerStyle: { backgroundColor: '#67A4FC'},
+		},
+	},
+	Profile: {
+		screen: Profile,
+		navigationOptions: {
+			headerTitle: 'Profile',
 			headerTintColor: '#fff',
 			headerStyle: { backgroundColor: '#67A4FC'},
 		},

@@ -5,8 +5,6 @@ import styled from 'styled-components/native';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-var ImagePicker = require('react-native-image-picker');
-
 import {
 	LoginButton,
 	AccessToken,
@@ -51,7 +49,7 @@ class HomeScreen extends Component {
 					userId: this.state.userId
 				}
 
-				itemsRef.push(item);
+				itemsRef.child(this.state.userId).set(item);
 			}
 
 		});
@@ -115,34 +113,6 @@ class HomeScreen extends Component {
 		});
 	}
 
-	imageTest = () => {
-
-		const options = {
-		  storageOptions: {
-		    skipBackup: true,
-		    path: 'images'
-		  }
-		};
-
-		ImagePicker.showImagePicker(options, (response) => {
-		  console.log('Response = ', response);
-
-		  if (response.didCancel) {
-		    console.log('User cancelled image picker');
-		  }
-		  else if (response.error) {
-		    console.log('ImagePicker Error: ', response.error);
-		  }
-		  else if (response.customButton) {
-		    console.log('User tapped custom button: ', response.customButton);
-		  }
-		  else {
-		    let source = { uri: response.uri };
-				// source is the source of the image
-		  }
-		});
-	}
-
 
   render() {
 
@@ -182,7 +152,7 @@ class HomeScreen extends Component {
       <MainContainer>
 				<NavView>
 					<TouchableHighlight
-						onPress={() => this.imageTest()}>
+						onPress={() => this.props.navigation.navigate('Profile', { userId: this.state.userId })}>
 						<Icon name='user' size={25} color="#67A4FC" />
 					</TouchableHighlight>
 

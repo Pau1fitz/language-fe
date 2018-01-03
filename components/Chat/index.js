@@ -16,8 +16,6 @@ class Chat extends Component {
 
 	componentDidMount() {
 
-		console.log('mounted')
-
 		const { userId, otherUserId } = this.props.navigation.state.params;
 
 		fetch(`http://192.168.0.14:3000/messages/${userId}/${otherUserId}`).then(res => {

@@ -61,8 +61,8 @@ class UserList extends Component {
 						}
 					}
 				}
-				keyExtractor={(item, index) => index}
-			/>
+					keyExtractor={(item, index) => index}
+				/>
 			</ScrollView>
 		)
 	}
