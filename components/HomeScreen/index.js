@@ -163,9 +163,7 @@ class HomeScreen extends Component {
 								} else if (result.isCancelled) {
 									alert("login is cancelled.");
 								} else {
-
 									this._getFbUser().then(() => {
-
 										this._addUserToDb(this.state.username);
 									}).catch(err => {
 										console.warn(err);
@@ -197,7 +195,6 @@ class HomeScreen extends Component {
 						onPress={() => this.props.navigation.navigate('UserList', { userId: this.state.userId, username: this.state.username, photo: this.state.photo} )}>
 						<Icon name='comment' size={25} color="#67A4FC" />
 					</TouchableHighlight>
-
 				</NavView>
 
 				<UserContainer>
