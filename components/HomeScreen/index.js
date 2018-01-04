@@ -153,17 +153,17 @@ class HomeScreen extends Component {
 				<NavView>
 					<TouchableHighlight
 						onPress={() => this.props.navigation.navigate('Profile', { userId: this.state.userId })}>
-						<Icon name='user' size={25} color="#67A4FC" />
+						<Icon name='user' size={25} color="#000" />
 					</TouchableHighlight>
 
 					<TouchableHighlight
 						onPress={() => this.props.navigation.navigate('UserList', { userId: this.state.userId, username: this.state.username, photo: this.state.photo} )}>
-						<Icon name='bolt' size={25} color="#67A4FC" />
+						<Icon name='bolt' size={25} color="#000" />
 					</TouchableHighlight>
 
 					<TouchableHighlight
 						onPress={() => this.props.navigation.navigate('UserList', { userId: this.state.userId, username: this.state.username, photo: this.state.photo} )}>
-						<Icon name='comment' size={25} color="#67A4FC" />
+						<Icon name='comment' size={25} color="#000" />
 					</TouchableHighlight>
 				</NavView>
 

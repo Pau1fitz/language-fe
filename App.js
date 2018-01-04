@@ -13,7 +13,7 @@ const RootNavigator = StackNavigator({
 		navigationOptions: {
 			headerTitle: 'Home',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#67A4FC'},
+			headerStyle: { backgroundColor: '#000'},
 		},
 	},
   UserList: {
@@ -21,7 +21,7 @@ const RootNavigator = StackNavigator({
     navigationOptions: {
       headerTitle: 'User List',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#67A4FC'},
+			headerStyle: { backgroundColor: '#000'},
     },
   },
 	Chat: {
@@ -29,7 +29,7 @@ const RootNavigator = StackNavigator({
 		navigationOptions: {
 			headerTitle: 'Chat',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#67A4FC'},
+			headerStyle: { backgroundColor: '#000'},
 		},
 	},
 	Profile: {
@@ -37,7 +37,7 @@ const RootNavigator = StackNavigator({
 		navigationOptions: {
 			headerTitle: 'Profile',
 			headerTintColor: '#fff',
-			headerStyle: { backgroundColor: '#67A4FC'},
+			headerStyle: { backgroundColor: '#000'},
 		},
 	},
 

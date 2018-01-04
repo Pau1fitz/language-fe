@@ -84,23 +84,20 @@ class Profile extends Component {
 
 		return (
 			<View>
+
 				<TouchableHighlight onPress={this.imageTest}>
 					<Text>IMAGES</Text>
 				</TouchableHighlight>
 
-				<FlatList
-					data={
-						this.state.images
-					}
-
-					renderItem={({item}) => {
+				<ImagesContainer>
+				{
+					this.state.images.map(image => {
 						return (
-							<UsersImage source={{ uri: item }} />
+							<UsersImage key={ image } source={{ uri: image }} />
 						)
-					}
+					})
 				}
-					keyExtractor={(item, index) => index}
-				/>
+				</ImagesContainer>
 			</View>
 		);
 	}
@@ -108,10 +105,15 @@ class Profile extends Component {
 
 
 const UsersImage = styled.Image`
-	height: 100px;
-	width: 100px;
-	border-radius: 4px;
+	height: 70px;
+	width: 70px;
+	border-radius: 35px;
 `;
 
+const ImagesContainer = styled.View`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+`;
 
 export default Profile;
