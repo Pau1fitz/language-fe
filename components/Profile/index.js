@@ -108,6 +108,8 @@ class Profile extends Component {
 			bio: this.state.bio
 		});
 
+		this.bioInput.blur();
+
 	}
 
 	render() {
@@ -147,11 +149,13 @@ class Profile extends Component {
 
 
 				<BioContainer>
-					<BioInput
+					<TextInput
+						style={{ height: 100 }}
 	        	onChangeText={(bio) => this.setState({bio})}
 	        	value={this.state.bio}
 						placeholder='Bio...'
 						multiline
+					 	ref={(input) => { this.bioInput = input; }}
 					/>
 				</BioContainer>
 
@@ -190,10 +194,6 @@ const BioContainer = styled.View`
 	border-color: #ccc;
 	border-radius: 4px;
 	margin: 10px 15px;
-`;
-
-const BioInput = styled.TextInput`
-	height: 100px;
 `;
 
 const UsersImage = styled.Image`
