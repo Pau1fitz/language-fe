@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback, FlatList, Image, TextInput } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, FlatList, Image, TextInput, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Loading from '../Loading';
 import firebase from '../../client';
 
 class Profile extends Component {
 
 	state = {
 		images: [],
-		bio: ''
+		bio: '',
+		loading: true
 	}
 
 	componentDidMount() {
 
 		const { userId } = this.props.navigation.state.params;
 
-		const userRef = firebase.database().ref('users').child(userId).child('images');
+		const userRef = firebase.database().ref('users').child(userId);
 
 		const images = [];
 
-		userRef.once('value', snapshot => {
+		// get bio
+		userRef.child('bio').once('value', snapshot => {
+			this.setState({
+				bio: snapshot.val()
+			});
+		});
+
+		// get user images
+		userRef.child('images').once('value', snapshot => {
 			snapshot.forEach(childSnapshot => {
 				const data = childSnapshot.val().image;
 				images.push(data);
@@ -31,7 +41,8 @@ class Profile extends Component {
 			}
 
 			this.setState({
-				images
+				images,
+				loading: false
 			});
 
 		});
@@ -60,7 +71,8 @@ class Profile extends Component {
 
 	}
 
-	imageTest = () => {
+
+	addImages = () => {
 
 		const options = {
 			storageOptions: {
@@ -86,7 +98,23 @@ class Profile extends Component {
 		});
 	}
 
+	saveBio = () => {
+
+		const { userId } = this.props.navigation.state.params;
+
+		const userRef = firebase.database().ref('users').child(userId);
+
+		userRef.update({
+			bio: this.state.bio
+		});
+
+	}
+
 	render() {
+
+		if(this.state.loading) {
+			return <Loading />;
+		}
 
 		return (
 			<ProfileContainer>
@@ -98,7 +126,7 @@ class Profile extends Component {
 						return image === '' ? (
 							<TouchableWithoutFeedback
 								key={ i }
-								onPress={this.imageTest}
+								onPress={this.addImages}
 							>
 								<ImageCol>
 									<EmptyImage>
@@ -127,6 +155,12 @@ class Profile extends Component {
 					/>
 				</BioContainer>
 
+				<TouchableOpacity onPress={this.saveBio}>
+				 <ButtonContainer>
+					 <ButtonText>Save</ButtonText>
+				 </ButtonContainer>
+			 </TouchableOpacity>
+
 			</ProfileContainer>
 		);
 	}
@@ -136,12 +170,26 @@ const ProfileContainer = styled.View`
 	margin-top: 10px;
 `;
 
+const ButtonContainer = styled.View`
+	align-content: center;
+	padding: 10px;
+	width: 80px;
+	background-color: #000;
+	margin: 5px 15px;
+	border-radius: 4px;
+`;
+
+const ButtonText = styled.Text`
+	color: #fff;
+	text-align: center;
+`;
+
 const BioContainer = styled.View`
 	padding: 10px;
 	border-width: 1px;
 	border-color: #ccc;
 	border-radius: 4px;
-	margin: 15px;
+	margin: 10px 15px;
 `;
 
 const BioInput = styled.TextInput`
