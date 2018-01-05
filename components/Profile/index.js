@@ -171,7 +171,7 @@ class Profile extends Component {
 }
 
 const ProfileContainer = styled.View`
-	margin-top: 10px;
+	margin-top: 45px;
 `;
 
 const ButtonContainer = styled.View`
