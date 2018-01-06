@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableHighlight, TouchableOpacity } from 'react-native';
 import Loading from '../Loading';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 import {
 	LoginButton,
 	AccessToken,
 	GraphRequestManager,
-	GraphRequest
+	GraphRequest,
+	LoginManager
 } from 'react-native-fbsdk';
 
 import firebase from '../../client';
@@ -114,7 +116,27 @@ class HomeScreen extends Component {
 	}
 
 
+	logout = () => {
+		LoginManager.logOut((error, data) => {
+			console.log(error, data);
+		});
+
+		this.setState({
+			username: null,
+			photo: null,
+			displayLogin: true,
+			userId: null,
+			birthday: null,
+			loading: false,
+			displayLogin: true
+			}
+		);
+	}
+
+
   render() {
+
+		console.log(this.state)
 
 		if(this.state.loading) {
 			return <Loading />;
@@ -172,6 +194,13 @@ class HomeScreen extends Component {
 					<UsernameText>{ this.state.username }</UsernameText>
 				</UserContainer>
 
+
+				<TouchableOpacity onPress={this.logout}>
+					 <ButtonContainer>
+						 <ButtonText>Logout</ButtonText>
+					 </ButtonContainer>
+				 </TouchableOpacity>
+
 			</MainContainer>
     );
   }
@@ -214,6 +243,20 @@ const FacebookButtonContainer = styled.View`
 	justify-content: center;
 	align-items: center;
 	flex: 1;
+`;
+
+const ButtonContainer = styled.View`
+	align-content: center;
+	padding: 10px;
+	width: 80px;
+	background-color: #000;
+	margin: 5px 15px;
+	border-radius: 4px;
+`;
+
+const ButtonText = styled.Text`
+	color: #fff;
+	text-align: center;
 `;
 
 export default HomeScreen;

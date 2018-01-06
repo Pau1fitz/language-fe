@@ -11,7 +11,7 @@ const RootNavigator = StackNavigator({
 	Home: {
 		screen: HomeScreen,
 		navigationOptions: {
-			headerTitle: 'Home',
+			headerTitle: 'Language App',
 			headerTintColor: '#fff',
 			headerStyle: { backgroundColor: '#000'},
 		},
