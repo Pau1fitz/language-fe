@@ -194,22 +194,27 @@ const BioContainer = styled.View`
 	border-color: #ccc;
 	border-radius: 4px;
 	margin: 10px 15px;
+	background-color: #fff;
 `;
 
 const UsersImage = styled.Image`
-	height: 80px;
-	width: 80px;
-	border-radius: 40px;
+	height: 90px;
+	width: 90px;
+	border-radius: 45px;
 	background-color: #ccc;
+	border-width: 2;
+	border-color: #fff;
 `;
 
 const EmptyImage = styled.View`
-	height: 80px;
-	width: 80px;
-	border-radius: 40px;
+	height: 90px;
+	width: 90px;
+	border-radius: 45px;
 	background-color: #ccc;
 	align-items: center;
 	justify-content: center;
+	border-width: 2;
+	border-color: #fff;
 `;
 
 const ImagesContainer = styled.View`
